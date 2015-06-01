@@ -2,10 +2,11 @@ package com.imooc_recorder.view;
 
 import com.imooc_recorder.R;
 
-import android.R.integer;
 import android.content.Context;
 import android.util.AttributeSet;
+import android.util.Log;
 import android.view.MotionEvent;
+import android.view.View;
 import android.widget.Button;
 
 public class AudioRecorderButton extends Button {
@@ -17,10 +18,25 @@ public class AudioRecorderButton extends Button {
 	//当前状态
 	private int mCurState=STATE_NORMAL;
 	//是否正在录音
-	boolean isRecording = false;
+	private boolean isRecording = false;
+	private DialogManager mDialogManager;
+	
+	
+	
+	
 	public AudioRecorderButton(Context context, AttributeSet attrs) {
 		super(context, attrs);
-		// TODO Auto-generated constructor stub
+		mDialogManager=new DialogManager(getContext());
+		setOnLongClickListener(new OnLongClickListener() {
+			
+			@Override
+			public boolean onLongClick(View v) {
+				//TODO:真正显示应在在audio end prepare之后
+				mDialogManager.showRecordingDialog();
+				isRecording=true;
+				return false;
+			}
+		});
 	}
 	
 
@@ -39,18 +55,16 @@ public class AudioRecorderButton extends Button {
 		
 		switch (action) {
 		case MotionEvent.ACTION_DOWN:
-			//TODO
-			isRecording=true;
 			changeState(STATE_RECORDING);
 			break;
 		case MotionEvent.ACTION_MOVE:
 			if(isRecording)
 			{
-				if(wantToCancel(x,y))
+				if(isCancel(x,y))
 				{
 					changeState(STATE_WANT_TO_CANCEL);
 				}else {
-					changeState(STATE_NORMAL);
+					changeState(STATE_RECORDING);
 				}
 			}
 			
@@ -79,8 +93,8 @@ public class AudioRecorderButton extends Button {
 		changeState(STATE_NORMAL);
 	}
 
-
-	private boolean wantToCancel(int x, int y) {
+   //如果想要取消（超出范围），返回ture
+	private boolean isCancel(int x, int y) {
 		// TODO Auto-generated method stub
 		if(x<0||x>getWidth())
 			return true;
@@ -103,13 +117,13 @@ public class AudioRecorderButton extends Button {
 				setBackgroundResource(R.drawable.btn_recordering);
 				setText(R.string.str_recorder_recording);
 				if(isRecording){
-					//TODO:Dialog.recording();
+					mDialogManager.recording();
 				}
 				break;
 			case STATE_WANT_TO_CANCEL:
 				setBackgroundResource(R.drawable.btn_recordering);
 				setText(R.string.str_recorder_want_cancel);
-				//TODO:dialog.wantCancel();
+				mDialogManager.wantToCancel();
 				break;
 
 			default:
