@@ -56,6 +56,7 @@ public class DialogManager {
 		mVoice=(ImageView)mDialog.findViewById(R.id.id_recorder_dialg_voice);
 		mLabel=(TextView)mDialog.findViewById(R.id.id_recorder_dialod_label);
 		mDialog.show();
+		Log.d("showRecordingDialog","In");
 	}
 	
 	public void tooShort() {
@@ -73,8 +74,10 @@ public class DialogManager {
 	public void dimissDialog() {
 		if(mDialog!=null&&mDialog.isShowing())
 		{
+			Log.d("dismissDialog","in");
 			mDialog.dismiss();
 			mDialog=null;
+			Log.d("dismissDialog","out");
 		}
 	}
 	
@@ -83,10 +86,13 @@ public class DialogManager {
 	public void updateVoice(int level) {
 		if(mDialog!=null&&mDialog.isShowing())
 		{
-			mIcon.setVisibility(View.VISIBLE);
-			mVoice.setVisibility(View.GONE);
-			mLabel.setVisibility(View.VISIBLE);
+			//如果不注释掉下面得代码，音量对话框会一直显示（因为更新音量时mVoice被设置为可见）
+//			mIcon.setVisibility(View.VISIBLE);
+//			mVoice.setVisibility(View.VISIBLE);
+//			mLabel.setVisibility(View.VISIBLE);
+			Log.d("updateVoice","setdone");
 			
+			System.out.println("level"+level);
 			int resId=mContext.getResources().getIdentifier("v"+level,"drawable",mContext.getPackageName());
 			mVoice.setImageResource(resId);
 		}
