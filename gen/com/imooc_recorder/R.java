@@ -1644,18 +1644,19 @@ containing a value of this type.
         public static final int dialog_loading_bg=0x7f02003c;
         public static final int ic_launcher=0x7f02003d;
         public static final int icon=0x7f02003e;
-        public static final int recorder=0x7f02003f;
-        public static final int v1=0x7f020040;
-        public static final int v2=0x7f020041;
-        public static final int v3=0x7f020042;
-        public static final int v4=0x7f020043;
-        public static final int v5=0x7f020044;
-        public static final int v6=0x7f020045;
-        public static final int v7=0x7f020046;
-        public static final int v_anim1=0x7f020047;
-        public static final int v_anim2=0x7f020048;
-        public static final int v_anim3=0x7f020049;
-        public static final int voice_to_short=0x7f02004a;
+        public static final int play_anim=0x7f02003f;
+        public static final int recorder=0x7f020040;
+        public static final int v1=0x7f020041;
+        public static final int v2=0x7f020042;
+        public static final int v3=0x7f020043;
+        public static final int v4=0x7f020044;
+        public static final int v5=0x7f020045;
+        public static final int v6=0x7f020046;
+        public static final int v7=0x7f020047;
+        public static final int v_anim1=0x7f020048;
+        public static final int v_anim2=0x7f020049;
+        public static final int v_anim3=0x7f02004a;
+        public static final int voice_to_short=0x7f02004b;
     }
     public static final class id {
         public static final int action_bar=0x7f090031;
@@ -1671,7 +1672,7 @@ containing a value of this type.
         public static final int action_mode_bar=0x7f09002e;
         public static final int action_mode_bar_stub=0x7f09002d;
         public static final int action_mode_close_button=0x7f090020;
-        public static final int action_settings=0x7f090044;
+        public static final int action_settings=0x7f090048;
         public static final int activity_chooser_view_content=0x7f090021;
         public static final int always=0x7f090014;
         public static final int beginning=0x7f09001b;
@@ -1689,11 +1690,15 @@ containing a value of this type.
         public static final int home=0x7f090000;
         public static final int homeAsUp=0x7f09000e;
         public static final int icon=0x7f090026;
+        public static final int id_icon=0x7f090044;
         public static final int id_listview=0x7f09003f;
+        public static final int id_recorder_anim=0x7f090046;
         public static final int id_recorder_button=0x7f090040;
         public static final int id_recorder_dialg_icon=0x7f090041;
         public static final int id_recorder_dialg_voice=0x7f090042;
         public static final int id_recorder_dialod_label=0x7f090043;
+        public static final int id_recorder_length=0x7f090045;
+        public static final int id_recorder_time=0x7f090047;
         public static final int ifRoom=0x7f090016;
         public static final int image=0x7f090023;
         public static final int listMode=0x7f09000a;
@@ -1779,7 +1784,8 @@ containing a value of this type.
         public static final int abc_simple_dropdown_hint=0x7f030016;
         public static final int activity_main=0x7f030017;
         public static final int dialog_recorder=0x7f030018;
-        public static final int support_simple_spinner_dropdown_item=0x7f030019;
+        public static final int item_recorder=0x7f030019;
+        public static final int support_simple_spinner_dropdown_item=0x7f03001a;
     }
     public static final class menu {
         public static final int main=0x7f0c0000;
